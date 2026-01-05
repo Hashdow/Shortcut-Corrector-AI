@@ -28,7 +28,7 @@ A powerful grammar correction tool for Linux that works with global hotkeys. Use
 
 ```bash
 sudo apt update
-sudo apt install -y xdotool xclip python3-pip default-jre
+sudo apt install -y xdotool xclip python3-pip
 ```
 
 ### Step 2: Install Python Dependencies
@@ -44,15 +44,7 @@ pip install openai pynput
 
 ## Configuration
 
-### OpenAI Version Setup
-
-1. Get your OpenAI API key from [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
-2. Open `english_fixer_openai.py`
-3. Replace this line:
-   ```python
-   client = OpenAI(api_key="######## YOU_OPEN-AI-KEY-HERE ########")
-   ```
-   WSetup Your OpenAI API Key
+### Setup Your OpenAI API Key
 
 1. Get your OpenAI API key from [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
 2. Open `english_fixer_openai.py`
@@ -70,7 +62,9 @@ pip install openai pynput
 python3 english_fixer_openai.py
 ```
 
-### Hotkey
+The program will start listening for hotkey presses.
+
+### Using the Hotkey
 
 Select any text in any application and press **Ctrl+Alt+R**
 
@@ -138,29 +132,21 @@ Then make it executable:
 chmod +x ~/.local/share/applications/english-fixer.desktop
 ```
 
-## Dependencies
-
-### OpenAI Version (`requirements_openai.txt`)
-- `openai>=1.0.0` - OpenAI API client
-- `pynput>=1.7.6` - Global hotkey listening
-- `xdotool` - System tool for keyboard/mouse automation
-- `xclip` - System tool for clipboard management
-
-### Python Packages (`requirements.txt`)
+## DPython Packages (`requirements.txt`)
 - `openai>=1.0.0` - OpenAI API client
 - `pynput>=1.7.6` - Global hotkey listening
 
 ### System Tools
 - `xdotool` - Keyboard/mouse automation
 - `xclip` - Clipboard management
-3. Sends text to OpenAI GPT-3.5-turbo
+
+## How It Works
+
+1. Listens for global hotkey press (Ctrl+Alt+R)
+2. Reads selected text from clipboard
+3. Sends text to OpenAI GPT-3.5-turbo for correction
 4. Replaces original text with corrected version
 5. Returns to waiting state
-
-### Local Version
-1. Listens for global hotkey press (Ctrl+Shift+F)
-2. Reads selected text from clipboard
-1. Listens for global hotkey press (Ctrl+Alt+R)
 2. Reads selected text from clipboard
 3. Sends text to OpenAI GPT-3.5-turbo for correction
 ### "xclip not found"
@@ -181,13 +167,9 @@ sudo apt install xclip
 - This happens on first run while downloading language rules
 - Subsequent runs will be faster
 
-## Security Note
-
-⚠️ **IMPORTANT**: Never commit your OpenAI API key to version control!
-- Add `english_fix
 - Verify your API key is correct
 - Check your OpenAI account has sufficient credits
-- Ensure the key starts with `sk-proj-`
+- Ensure the key starts with `sk-proj-`-proj-`
 ```
 
 Then set the environment variable:
@@ -197,34 +179,29 @@ export OPENAI_API_KEY="your-key-here"
 
 ## Performance
 
-- **OpenAI Version**: ~2-3 seconds per request (depends on internet speed and API latency)
-- **Local Version**: ~1-2 seconds on first run, ~0.5 seconds after that
-
-## Supported Languages
-
-- **English**: Full support
-- **French**: Supported by both versions
-
-## License
+Option 1: Use environment variables instead:
+```bash
+export OPENAI_API_KEY="your-key-here"
+```
+Response time**: ~2-3 seconds per request (depends on internet speed and OpenAI's API latency)e key directly.License
 
 Free to use and modify
 
 ## Contributing
 
-Feel free to fork and improve!
+Feel free to fork and i
 
 ## Keyboard Shortcuts Summary
 
 | Action | Shortcut |
 |--------|----------|
-| Fix text (OpenAI) | Ctrl+Alt+R |
+| Fix text (OpenAI) |
+
+| Action | Shortcut |
+|--------|----------|
+| Fix text | Ctrl+Alt+R |
 | Exit | Ctrl+C |
 
 ---
 
 **Happy writing!** ✨
-
-
-| Action | Shortcut |
-|--------|----------|
-| Fix text | Ctrl+Alt+R
