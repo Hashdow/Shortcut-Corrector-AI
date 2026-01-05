@@ -218,7 +218,6 @@ Feel free to fork and improve!
 | Action | Shortcut |
 |--------|----------|
 | Fix text (OpenAI) | Ctrl+Alt+R |
-| Fix text (Local) | Ctrl+Shift+F |
 | Exit | Ctrl+C |
 
 ---
